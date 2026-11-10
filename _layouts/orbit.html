@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080e1b">
+  <title>{{ page.title | escape }}</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --space: #080e1b;
+      --surface: #101a2c;
+      --line: #273b56;
+      --ink: #f2f6ff;
+      --text: #c3d0e5;
+      --cyan: #75e7f4;
+      --gold: #ffc471;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: radial-gradient(ellipse at 75% 0%, #152943 0, transparent 32rem), var(--space);
+    }
+
+    .page {
+      width: min(100% - 2rem, 54rem);
+      margin-inline: auto;
+      padding-block: clamp(1rem, 6vw, 4.5rem) 2rem;
+    }
+
+    .flight-deck {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 46%;
+      align-items: center;
+      min-height: clamp(10rem, 29vw, 17rem);
+      overflow: hidden;
+      padding-inline-start: clamp(1.2rem, 5vw, 3.5rem);
+      border: 1px solid var(--line);
+      border-radius: 1.2rem 1.2rem 0 0;
+      background:
+        radial-gradient(circle at 77% 53%, #164361, transparent 55%),
+        linear-gradient(130deg, #141e35, #090f20 68%);
+    }
+
+    .identity {
+      position: relative;
+      z-index: 1;
+      margin-block: 1rem;
+    }
+
+    .identity strong {
+      display: block;
+      color: var(--ink);
+      font-size: clamp(1.4rem, 5vw, 3.25rem);
+      line-height: 1.1;
+      letter-spacing: .075em;
+      text-transform: uppercase;
+    }
+
+    .identity span {
+      display: block;
+      margin-top: .65rem;
+      color: var(--cyan);
+      font-size: .74rem;
+      font-weight: 650;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .orbit {
+      display: block;
+      width: min(100%, 22rem);
+      justify-self: center;
+      overflow: visible;
+    }
+
+    main {
+      padding: clamp(1.25rem, 5vw, 3.5rem);
+      border: 1px solid var(--line);
+      border-top: 2px solid var(--cyan);
+      border-radius: 0 0 1.2rem 1.2rem;
+      background: var(--surface);
+      font-size: 1rem;
+      line-height: 1.75;
+      overflow-wrap: anywhere;
+    }
+
+    h1, h2 {
+      color: var(--ink);
+      line-height: 1.22;
+      text-wrap: balance;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+      font-size: clamp(1.75rem, 4.5vw, 2.65rem);
+      letter-spacing: -.035em;
+    }
+
+    h2 {
+      margin: 2rem 0 .75rem;
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--line);
+      font-size: 1.25rem;
+    }
+
+    p { margin: 0 0 1rem; }
+    main p:last-child { margin-bottom: 0; }
+
+    code {
+      padding: .1em .3em;
+      border-radius: .25rem;
+      background: #1b2b42;
+      color: var(--cyan);
+      font-size: .92em;
+    }
+
+    a { color: var(--cyan); }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: .2rem; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="flight-deck">
+      <div class="identity">
+        <strong>Tiny Orbit</strong>
+        <span>Odysseus · Discord bot</span>
+      </div>
+      <svg class="orbit" viewBox="0 0 360 240" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="planet" cx="35%" cy="23%" r="80%">
+            <stop stop-color="#619cbb"/>
+            <stop offset=".55" stop-color="#254b70"/>
+            <stop offset="1" stop-color="#0a1630"/>
+          </radialGradient>
+        </defs>
+        <g fill="#c3e6fa" opacity=".67">
+          <circle cx="39" cy="51" r="1.5"/>
+          <circle cx="71" cy="195" r="1.8"/>
+          <circle cx="113" cy="27" r="1"/>
+          <circle cx="232" cy="30" r="1.5"/>
+          <circle cx="310" cy="154" r="1.1"/>
+          <circle cx="298" cy="201" r="1.7"/>
+          <circle cx="342" cy="94" r="1"/>
+        </g>
+        <ellipse cx="183" cy="120" rx="138" ry="68" transform="rotate(-25 183 120)" fill="none" stroke="#74d8ee" stroke-opacity=".31" stroke-dasharray="3 7"/>
+        <ellipse cx="183" cy="120" rx="113" ry="40" transform="rotate(-25 183 120)" fill="none" stroke="#75e7f4" stroke-width="2"/>
+        <circle cx="183" cy="120" r="57" fill="url(#planet)" stroke="#96dfef" stroke-opacity=".45"/>
+        <path d="M80.59 167.76 A113 40 -25 0 0 285.41 72.24" fill="none" stroke="#75e7f4" stroke-width="2"/>
+        <circle cx="266" cy="107" r="7" fill="#ffc471" opacity=".2"/>
+        <circle cx="266" cy="107" r="3.7" fill="#ffc471"/>
+      </svg>
+    </header>
+    <main>
+      {{ content }}
+    </main>
+  </div>
+</body>
+</html>

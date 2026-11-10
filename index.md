@@ -1,3 +1,8 @@
+---
+layout: orbit
+title: Odysseus – Tiny Orbit Privacy Policy
+---
+
 # Odysseus – Tiny Orbit Privacy Policy
 
 This policy covers the Odysseus bot operated by the Tiny Orbit team in the Tiny Orbit Discord server.
